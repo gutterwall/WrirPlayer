@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pre-dex-items>
+
+    <item
+        dex="C:\Users\xha89407\Documents\WrirPlayer\app\build\intermediates\pre-dexed\release\support-annotations-20.0.0-79e42da7c2657068d681cf877be8b4cc06e3cb7a.jar"
+        jar="C:\Program Files (x86)\Android\android-studio\sdk\extras\android\m2repository\com\android\support\support-annotations\20.0.0\support-annotations-20.0.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="9d9013e9ff35fc3756411e62873c363c70c638fa"/>
+    <item
+        dex="C:\Users\xha89407\Documents\WrirPlayer\app\build\intermediates\pre-dexed\release\classes-72b7b2e1abe0d5ed4ddc6fa08f28b2995b570bec.jar"
+        jar="C:\Users\xha89407\Documents\WrirPlayer\app\build\intermediates\exploded-aar\com.android.support\support-v4\20.0.0\classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="8694693636ab36910c8100ce527c258ff3ebece0"/>
+    <item
+        dex="C:\Users\xha89407\Documents\WrirPlayer\app\build\intermediates\pre-dexed\release\internal_impl-20.0.0-9b7a087b1ebe213a2f299c7edaa176f8e64ef2b4.jar"
+        jar="C:\Users\xha89407\Documents\WrirPlayer\app\build\intermediates\exploded-aar\com.android.support\support-v4\20.0.0\libs\internal_impl-20.0.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="e40b3078e3fbd353c9f44da8df25a8fc0078209d"/>
+    <item
+        dex="C:\Users\xha89407\Documents\WrirPlayer\app\build\intermediates\pre-dexed\release\volley-b0c087ee1d17eda68efd3d8bf018c1c50d0d4ec4.jar"
+        jar="C:\Users\xha89407\Documents\WrirPlayer\app\libs\volley.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="d4aaa36e04ee71a83444f8367c97a46fda662d2c"/>
+
+</pre-dex-items>
