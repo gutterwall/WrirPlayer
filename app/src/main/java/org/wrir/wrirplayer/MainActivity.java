@@ -1,5 +1,5 @@
 package org.wrir.WrirPlayer;
-
+import android.content.Intent;
 import org.wrir.WrirPlayer.adater.CustomListAdapter;
 import org.wrir.WrirPlayer.app.AppController;
 import org.wrir.WrirPlayer.model.Show;
@@ -11,28 +11,25 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+
 import android.app.Activity;
 import android.app.ProgressDialog;
-import android.content.Context;
-import android.content.Intent;
-import android.content.res.AssetFileDescriptor;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.os.Environment;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.NetworkImageView;
+
 
 public class MainActivity extends Activity {
     // Log tag
@@ -60,25 +57,21 @@ public class MainActivity extends Activity {
 
                 TextView mp3View = (TextView) view.findViewById(R.id.mp3);
                 String mp3 = mp3View.getText().toString();
-                // selected item
-                //String mp3 = ((android.widget.TextView) view).getText().toString();
-
-                // Launching new Activity on selecting single List Item
-                //Intent i = new Intent(getApplicationContext(), SingleListItem.class);
-                // sending data to new activity
-                //i.putExtra("mp3", mp3);
-                //startActivity(i);`
-                Toast.makeText(getApplicationContext(), mp3, Toast.LENGTH_LONG).show();
+                TextView titleView = (TextView) view.findViewById(R.id.title);
+                String title = titleView.getText().toString();
+                TextView posterView = (TextView) view.findViewById(R.id.poster);
+                String posterurl = posterView.getText().toString();
+                //Toast.makeText(getApplicationContext(), mp3, Toast.LENGTH_LONG).show();
                 try {
-
-
-                    playAudio(mp3);
+                    killMediaPlayer();
+                    loadPlayerControl(mp3, title, posterurl);
+                    //playAudio(mp3);
                     //playLocalAudio();
                     //playLocalAudio_UsingDescriptor();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-             }
+            }
         });
 
 
@@ -88,8 +81,8 @@ public class MainActivity extends Activity {
         pDialog.show();
 
         // changing action bar color
-        getActionBar().setBackgroundDrawable(
-                new ColorDrawable(Color.parseColor("#1b1b1b")));
+        //getActionBar().setBackgroundDrawable(
+        //        new ColorDrawable(Color.parseColor("#1b1b1b")));
 
 
         // Creating volley request obj
@@ -144,6 +137,8 @@ public class MainActivity extends Activity {
 
         // Adding request to request queue
         AppController.getInstance().addToRequestQueue(ShowReq);
+
+
     }
 
     @Override
@@ -166,18 +161,31 @@ public class MainActivity extends Activity {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
+
     private void killMediaPlayer() {
-        if(mediaPlayer!=null) {
+        if (mediaPlayer != null) {
             try {
                 mediaPlayer.release();
-            }
-            catch(Exception e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
-    private void playAudio(String url) throws Exception
-    {
+
+    public void loadPlayerControl(String mp3, String title, String poster) {
+        //define a new Intent for the second Activity
+        Log.w("WRIR","WRIR: about to Intent");
+        Intent intent = new Intent(this, PlayerControl.class);
+        Log.w("WRIR","WRIR: Putting Extras" + mp3 + " " + title);
+        intent.putExtra("mp3", mp3);
+        intent.putExtra("title", title);
+        intent.putExtra("poster", poster);
+        //start the second Activity
+        Log.w("WRIR","WRIR: StartActivity NOW");
+        this.startActivity(intent);
+        Log.w("WRIR", "WRIR: Done!");
+    }
+    private void playAudio(String url) throws Exception {
         killMediaPlayer();
 
         mediaPlayer = new MediaPlayer();
@@ -185,28 +193,7 @@ public class MainActivity extends Activity {
         mediaPlayer.prepare();
         mediaPlayer.start();
     }
-    /*
-    private void playLocalAudio() throws Exception
-    {
-        mediaPlayer = MediaPlayer.create(this, R.raw.musicfile);
-        mediaPlayer.start();
-    }
 
-    private void playLocalAudio_UsingDescriptor() throws Exception {
 
-        AssetFileDescriptor fileDesc = getResources().openRawResourceFd(
-                R.raw.musicfile);
-        if (fileDesc != null) {
-
-            mediaPlayer = new MediaPlayer();
-            mediaPlayer.setDataSource(fileDesc.getFileDescriptor(), fileDesc
-                    .getStartOffset(), fileDesc.getLength());
-
-            fileDesc.close();
-
-            mediaPlayer.prepare();
-            mediaPlayer.start();
-        }
-    }
-*/
 }
+

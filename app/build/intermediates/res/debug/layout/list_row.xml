@@ -62,6 +62,14 @@
         android:layout_below="@+id/thumbnail"
         android:visibility="gone"
         />
+    <TextView
+        android:id="@+id/poster"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mp3"
+        android:visibility="gone"
+        />
+
 
 
 </RelativeLayout><!-- From: file:/C:/Users/xha89407/Documents/WrirPlayer/app/src/main/res/layout/list_row.xml -->

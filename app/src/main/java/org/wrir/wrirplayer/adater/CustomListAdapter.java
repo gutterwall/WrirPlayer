@@ -69,7 +69,8 @@ public class CustomListAdapter extends BaseAdapter {
         TextView type = (TextView) convertView.findViewById(R.id.type);
         TextView datestamp = (TextView) convertView.findViewById(R.id.datestamp);
         TextView mp3 = (TextView) convertView.findViewById(R.id.mp3);
-        //Button button = (Button) convertView.findViewbyId(R.id.playShow);
+        TextView poster = (TextView) convertView.findViewById(R.id.poster);
+
 
         // getting Show data for the row
         Show m = ShowItems.get(position);
@@ -79,41 +80,34 @@ public class CustomListAdapter extends BaseAdapter {
 
         // title
         title.setText(m.getTitle());
-        //String urlString = m.getTitle() + "&lt;a href=\'" + m.getMp3() + "'&gt;Link!&lt;/&gt;";
-        //title.setText(Html.fromHtml(urlString));
+
         // rating
         presenter.setText(m.getPresenter());
 
         // genre
         type.setText(m.getType());
         String datestampraw = m.getDatestamp();
-        //String year = datestampraw.substring(0,4);
-        //String month = datestampraw.substring(5,2);
-        //String day = datestampraw.substring(7,2);
-        //String hour = datestampraw.substring(9,2);
-        //String minute = datestampraw.substring(11,2);
+
         String showtime = "";
         try {
             final SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmm");
             //final Date dateObj = sdf.parse(hour + ":" + minute);
             final Date dateObj = sdf.parse(datestampraw);
-            showtime = new SimpleDateFormat("MM/dd/yyyy K:mm a").format(dateObj);
+            showtime = new SimpleDateFormat("MM/dd/yyyy hh:mm a").format(dateObj);
         } catch (final ParseException e) {
             e.printStackTrace();
-            //showtime = hour + ":" + minute;
+            showtime = datestampraw;
         }
 
-        // release year
-       //datestamp.setText(m.getDatestamp());
-        datestamp.setText(showtime);
-        //datestamp.setText( month + "/" + day + "/" + year + " " + showtime);
+        // Show Time
 
+        datestamp.setText(showtime);
+        //MP3 URL
         mp3.setText(m.getMp3());
-        /*button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-            }
-        });
-        */
+
+        //Poster for Player to load separately (Need to throw Volley into Player maybe later??
+        poster.setText(m.getThumbnailUrl());
+
         return convertView;
     }
 }

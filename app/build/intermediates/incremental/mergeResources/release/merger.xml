@@ -57,6 +57,11 @@
                 qualifiers=""
                 type="layout" />
             <file
+                name="player_control"
+                path="C:\Users\xha89407\Documents\WrirPlayer\app\src\main\res\layout\player_control.xml"
+                qualifiers=""
+                type="layout" />
+            <file
                 name="main"
                 path="C:\Users\xha89407\Documents\WrirPlayer\app\src\main\res\menu\main.xml"
                 qualifiers=""
@@ -96,9 +101,11 @@
                 qualifiers="" >
                 <string name="action_settings" >Settings
                 </string>
-                <string name="app_name" >Custom ListView with Volley
+                <string name="app_name" >WrirPlayer
                 </string>
-                <string name="hello_world" >Hello world!
+                <string name="inital_Time" > 0 min, 0 sec
+                </string>
+                <string name="hello_world" >Now Playing:
                 </string>
             </file>
             <file
