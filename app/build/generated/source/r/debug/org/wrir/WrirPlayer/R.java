@@ -33,29 +33,33 @@ public final class R {
         public static final int list_row_selector=0x7f020003;
     }
     public static final class id {
-        public static final int action_settings=0x7f090011;
-        public static final int datestamp=0x7f090005;
-        public static final int imageButton1=0x7f09000b;
-        public static final int imageButton2=0x7f09000a;
-        public static final int imageButton3=0x7f090008;
-        public static final int imageButton4=0x7f090009;
+        public static final int action_settings=0x7f090014;
+        public static final int blogsiteurl=0x7f090013;
+        public static final int blogurl=0x7f090009;
+        public static final int datestamp=0x7f090006;
+        public static final int imageButton1=0x7f09000d;
+        public static final int imageButton2=0x7f09000c;
+        public static final int imageButton3=0x7f09000a;
+        public static final int imageButton4=0x7f09000b;
         public static final int list=0x7f090000;
-        public static final int mp3=0x7f090006;
-        public static final int poster=0x7f090007;
-        public static final int presenter=0x7f090003;
-        public static final int seekBar1=0x7f09000c;
-        public static final int textView1=0x7f09000e;
-        public static final int textView2=0x7f09000d;
-        public static final int textView3=0x7f09000f;
-        public static final int textView4=0x7f090010;
-        public static final int thumbnail=0x7f090001;
-        public static final int title=0x7f090002;
-        public static final int type=0x7f090004;
+        public static final int mp3=0x7f090007;
+        public static final int poster=0x7f090008;
+        public static final int presenter=0x7f090004;
+        public static final int seekBar1=0x7f09000e;
+        public static final int textView1=0x7f090010;
+        public static final int textView2=0x7f09000f;
+        public static final int textView3=0x7f090011;
+        public static final int textView4=0x7f090012;
+        public static final int thumbnail=0x7f090002;
+        public static final int title=0x7f090003;
+        public static final int type=0x7f090005;
+        public static final int webView=0x7f090001;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
-        public static final int list_row=0x7f030001;
-        public static final int player_control=0x7f030002;
+        public static final int blog_site_viewer=0x7f030001;
+        public static final int list_row=0x7f030002;
+        public static final int player_control=0x7f030003;
     }
     public static final class menu {
         public static final int main=0x7f080000;

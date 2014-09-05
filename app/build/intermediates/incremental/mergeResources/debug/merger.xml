@@ -2,72 +2,77 @@
 <merger version="2" >
 
     <dataSet config="20.0.0" >
-        <source path="C:\Users\xha89407\Documents\WrirPlayer\app\build\intermediates\exploded-aar\com.android.support\support-v4\20.0.0\res" />
+        <source path="C:\Users\xha89407\Documents\GitHub\WrirPlayer\app\build\intermediates\exploded-aar\com.android.support\support-v4\20.0.0\res" />
     </dataSet>
     <dataSet config="main" >
-        <source path="C:\Users\xha89407\Documents\WrirPlayer\app\src\main\res" >
+        <source path="C:\Users\xha89407\Documents\GitHub\WrirPlayer\app\src\main\res" >
             <file
                 name="list_row_bg"
-                path="C:\Users\xha89407\Documents\WrirPlayer\app\src\main\res\drawable\list_row_bg.xml"
+                path="C:\Users\xha89407\Documents\GitHub\WrirPlayer\app\src\main\res\drawable\list_row_bg.xml"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="list_row_bg_hover"
-                path="C:\Users\xha89407\Documents\WrirPlayer\app\src\main\res\drawable\list_row_bg_hover.xml"
+                path="C:\Users\xha89407\Documents\GitHub\WrirPlayer\app\src\main\res\drawable\list_row_bg_hover.xml"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="list_row_selector"
-                path="C:\Users\xha89407\Documents\WrirPlayer\app\src\main\res\drawable\list_row_selector.xml"
+                path="C:\Users\xha89407\Documents\GitHub\WrirPlayer\app\src\main\res\drawable\list_row_selector.xml"
                 qualifiers=""
                 type="drawable" />
             <file
                 name="ic_launcher"
-                path="C:\Users\xha89407\Documents\WrirPlayer\app\src\main\res\drawable-hdpi\ic_launcher.png"
+                path="C:\Users\xha89407\Documents\GitHub\WrirPlayer\app\src\main\res\drawable-hdpi\ic_launcher.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
                 name="ic_launcher"
-                path="C:\Users\xha89407\Documents\WrirPlayer\app\src\main\res\drawable-mdpi\ic_launcher.png"
+                path="C:\Users\xha89407\Documents\GitHub\WrirPlayer\app\src\main\res\drawable-mdpi\ic_launcher.png"
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
                 name="ic_launcher"
-                path="C:\Users\xha89407\Documents\WrirPlayer\app\src\main\res\drawable-xhdpi\ic_launcher.png"
+                path="C:\Users\xha89407\Documents\GitHub\WrirPlayer\app\src\main\res\drawable-xhdpi\ic_launcher.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
             <file
                 name="ic_launcher"
-                path="C:\Users\xha89407\Documents\WrirPlayer\app\src\main\res\drawable-xxhdpi\ic_launcher.png"
+                path="C:\Users\xha89407\Documents\GitHub\WrirPlayer\app\src\main\res\drawable-xxhdpi\ic_launcher.png"
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
                 name="ic_launcher"
-                path="C:\Users\xha89407\Documents\WrirPlayer\app\src\main\res\drawable-xxxhdpi\ic_launcher.png"
+                path="C:\Users\xha89407\Documents\GitHub\WrirPlayer\app\src\main\res\drawable-xxxhdpi\ic_launcher.png"
                 qualifiers="xxxhdpi-v4"
                 type="drawable" />
             <file
                 name="activity_main"
-                path="C:\Users\xha89407\Documents\WrirPlayer\app\src\main\res\layout\activity_main.xml"
+                path="C:\Users\xha89407\Documents\GitHub\WrirPlayer\app\src\main\res\layout\activity_main.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="blog_site_viewer"
+                path="C:\Users\xha89407\Documents\GitHub\WrirPlayer\app\src\main\res\layout\blog_site_viewer.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="list_row"
-                path="C:\Users\xha89407\Documents\WrirPlayer\app\src\main\res\layout\list_row.xml"
+                path="C:\Users\xha89407\Documents\GitHub\WrirPlayer\app\src\main\res\layout\list_row.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="player_control"
-                path="C:\Users\xha89407\Documents\WrirPlayer\app\src\main\res\layout\player_control.xml"
+                path="C:\Users\xha89407\Documents\GitHub\WrirPlayer\app\src\main\res\layout\player_control.xml"
                 qualifiers=""
                 type="layout" />
             <file
                 name="main"
-                path="C:\Users\xha89407\Documents\WrirPlayer\app\src\main\res\menu\main.xml"
+                path="C:\Users\xha89407\Documents\GitHub\WrirPlayer\app\src\main\res\menu\main.xml"
                 qualifiers=""
                 type="menu" />
             <file
-                path="C:\Users\xha89407\Documents\WrirPlayer\app\src\main\res\values\colors.xml"
+                path="C:\Users\xha89407\Documents\GitHub\WrirPlayer\app\src\main\res\values\colors.xml"
                 qualifiers="" >
                 <color name="list_row_start_color" >#ffffff
                 </color>
@@ -85,7 +90,7 @@
                 </color>
             </file>
             <file
-                path="C:\Users\xha89407\Documents\WrirPlayer\app\src\main\res\values\dimens.xml"
+                path="C:\Users\xha89407\Documents\GitHub\WrirPlayer\app\src\main\res\values\dimens.xml"
                 qualifiers="" >
                 <dimen name="year" >12dip
                 </dimen>
@@ -97,7 +102,7 @@
                 </dimen>
             </file>
             <file
-                path="C:\Users\xha89407\Documents\WrirPlayer\app\src\main\res\values\strings.xml"
+                path="C:\Users\xha89407\Documents\GitHub\WrirPlayer\app\src\main\res\values\strings.xml"
                 qualifiers="" >
                 <string name="action_settings" >Settings
                 </string>
@@ -109,7 +114,7 @@
                 </string>
             </file>
             <file
-                path="C:\Users\xha89407\Documents\WrirPlayer\app\src\main\res\values\styles.xml"
+                path="C:\Users\xha89407\Documents\GitHub\WrirPlayer\app\src\main\res\values\styles.xml"
                 qualifiers="" >
 
                 <style
@@ -131,13 +136,13 @@
                 </style>
             </file>
             <file
-                path="C:\Users\xha89407\Documents\WrirPlayer\app\src\main\res\values-sw720dp-land\dimens.xml"
+                path="C:\Users\xha89407\Documents\GitHub\WrirPlayer\app\src\main\res\values-sw720dp-land\dimens.xml"
                 qualifiers="sw720dp-land-v13" >
                 <dimen name="activity_horizontal_margin" >128dp
                 </dimen>
             </file>
             <file
-                path="C:\Users\xha89407\Documents\WrirPlayer\app\src\main\res\values-v11\styles.xml"
+                path="C:\Users\xha89407\Documents\GitHub\WrirPlayer\app\src\main\res\values-v11\styles.xml"
                 qualifiers="v11" >
 
                 <style
@@ -148,7 +153,7 @@
                 </style>
             </file>
             <file
-                path="C:\Users\xha89407\Documents\WrirPlayer\app\src\main\res\values-v14\styles.xml"
+                path="C:\Users\xha89407\Documents\GitHub\WrirPlayer\app\src\main\res\values-v14\styles.xml"
                 qualifiers="v14" >
 
                 <style
@@ -159,11 +164,11 @@
                 </style>
             </file>
         </source>
-        <source path="C:\Users\xha89407\Documents\WrirPlayer\app\build\generated\res\rs\debug" />
-        <source path="C:\Users\xha89407\Documents\WrirPlayer\app\build\generated\res\generated\debug" />
+        <source path="C:\Users\xha89407\Documents\GitHub\WrirPlayer\app\build\generated\res\rs\debug" />
+        <source path="C:\Users\xha89407\Documents\GitHub\WrirPlayer\app\build\generated\res\generated\debug" />
     </dataSet>
     <dataSet config="debug" >
-        <source path="C:\Users\xha89407\Documents\WrirPlayer\app\src\debug\res" />
+        <source path="C:\Users\xha89407\Documents\GitHub\WrirPlayer\app\src\debug\res" />
     </dataSet>
 
 </merger>

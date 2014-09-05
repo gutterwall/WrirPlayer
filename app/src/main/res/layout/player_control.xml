@@ -76,6 +76,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/imageButton3"
+        android:longClickable="true"
+        android:clickable="true"
         android:text="@string/hello_world"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 <ImageView
@@ -84,7 +86,10 @@
     android:layout_height="match_parent"
     android:layout_toEndOf="@id/title"
     android:layout_below="@+id/textView3"
+    android:clickable="true"
+    android:longClickable="true"
     android:layout_above="@+id/seekBar1" />
+
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
@@ -93,5 +98,10 @@
         android:layout_alignBottom="@+id/textView3"
         android:layout_toRightOf="@+id/imageButton1"
         android:text="TextView" />
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/blogsiteurl"
+        android:visibility="gone"
+        />
 </RelativeLayout>

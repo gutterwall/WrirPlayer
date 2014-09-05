@@ -1,19 +1,21 @@
 package org.wrir.WrirPlayer.model;
 
 public class Show {
-    private String title, thumbnailUrl, presenter, type, datestamp, mp3;
+    private String title, thumbnailUrl, presenter, type, datestamp, mp3, blogUrl;
 
     public Show() {
     }
 
     public Show(String name, String thumbnailUrl, String type, String presenter,
-                 String datestamp, String mp3) {
+                 String datestamp, String mp3, String blogUrl) {
         this.title = name;
         this.thumbnailUrl = thumbnailUrl;
         this.type = type;
         this.presenter = presenter;
         this.datestamp = datestamp;
         this.mp3 = mp3;
+        this.blogUrl = blogUrl;
+
     }
 
     public String getTitle() {
@@ -62,6 +64,12 @@ public class Show {
         this.mp3 = mp3;
     }
 
+    public String getBlogUrl() {
+        return blogUrl;
+    }
+    public void setBlogUrl (String blogUrl){
+        this.blogUrl = blogUrl;
+    }
 
 
 }

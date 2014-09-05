@@ -69,7 +69,13 @@
         android:layout_below="@+id/mp3"
         android:visibility="gone"
         />
+    <TextView
+        android:id="@+id/blogurl"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/poster"
+        android:visibility="gone"
+        />
 
 
-
-</RelativeLayout><!-- From: file:/C:/Users/xha89407/Documents/WrirPlayer/app/src/main/res/layout/list_row.xml -->
+</RelativeLayout><!-- From: file:/C:/Users/xha89407/Documents/GitHub/WrirPlayer/app/src/main/res/layout/list_row.xml -->

@@ -4,6 +4,7 @@ import java.io.InputStream;
 import java.util.concurrent.TimeUnit;
 
 
+import android.content.ActivityNotFoundException;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -12,6 +13,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.app.Activity;
+import android.content.Intent;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -21,13 +23,14 @@ import android.widget.TextView;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import org.wrir.WrirPlayer.util.BlogSiteViewer;
 
 
 /**
  * Created by xha89407 on 9/3/14.
  */
 public class PlayerControl extends Activity {
-    public TextView songName,startTimeField,endTimeField;
+    public TextView songName,startTimeField,endTimeField, blogUrl;
     public ImageView poster;
     private MediaPlayer mediaPlayer;
     private double startTime = 0;
@@ -46,31 +49,140 @@ public class PlayerControl extends Activity {
         //Get data to player!
         String mp3 = "";
         String title = "";
+        String blogurl = "";
 
         Log.w("WRIR", "WRIR: creating PlayerControl");
         Bundle extras = getIntent().getExtras();
         mp3 = extras.getString("mp3");
         title = extras.getString("title");
+        blogurl = extras.getString("blogurl");
         String posterurl = extras.getString("poster");
         Log.w("WRIR", "WRIR: " + mp3 + " " + title);
         Uri mp3url = Uri.parse(mp3);
         Log.w("WRIR", "WRIR: parsed uri");
-
+        blogUrl = (TextView) findViewById(R.id.blogsiteurl);
+        blogUrl.setText(blogurl);
         poster = (ImageView) findViewById(R.id.poster);
+        /*
+        poster.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                try {
+                    blogUrl =(TextView) view.findViewById(R.id.blogurl);
+                    String currentUrl = blogUrl.getText().toString();
+                    Log.w("WRIR","Getting blogUrl" + currentUrl);
+                    //Uri uri = Uri.parse(currentUrl);
+                    //Intent browserIntent = new Intent(Intent.ACTION_VIEW, uri);
+                    //startActivity(browserIntent);
+                    //startActivity(new Intent(Intent.ACTION_VIEW,uri));
+                    loadBlogViewer(currentUrl);
+
+                } catch (ActivityNotFoundException e) {
+                    //Toast.makeText(PlayerControl.CONTEXT_IGNORE_SECURITY, "No application can handle this request!", Toast.LENGTH_LONG ).show();
+                    e.printStackTrace();
+                    Log.w("WRIR","Failed blogUrl");
+                }
+                return true;
+
+            }
+        });
+        */
+        /*
+        poster.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    blogUrl =(TextView) view.findViewById(R.id.blogurl);
+                    String currentUrl = blogUrl.getText().toString();
+                    Log.w("WRIR","Getting blogUrl" + currentUrl);
+                    //Uri uri = Uri.parse(currentUrl);
+                    //Intent browserIntent = new Intent(Intent.ACTION_VIEW, uri);
+                    //startActivity(browserIntent);
+                    //startActivity(new Intent(Intent.ACTION_VIEW,uri));
+                    loadBlogViewer(currentUrl);
+
+                } catch (ActivityNotFoundException e) {
+                    //Toast.makeText(PlayerControl.CONTEXT_IGNORE_SECURITY, "No application can handle this request!", Toast.LENGTH_LONG ).show();
+                    e.printStackTrace();
+                    Log.w("WRIR","Failed blogUrl");
+                }
+            }
+        });
+        */
         songName = (TextView) findViewById(R.id.textView4);
         startTimeField = (TextView) findViewById(R.id.textView1);
         endTimeField = (TextView) findViewById(R.id.textView2);
         seekbar = (SeekBar) findViewById(R.id.seekBar1);
         playButton = (ImageButton) findViewById(R.id.imageButton1);
         pauseButton = (ImageButton) findViewById(R.id.imageButton2);
+
         songName.setText(title);
+        /*
+        songName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.w("WRIR","CLICKED SONG!");
+                try {
+                    blogUrl = (TextView) view.findViewById(R.id.blogsiteurl);
+                    String currentUrl = blogUrl.getText().toString();
+                    Log.w("WRIR","Getting blogUrl" + currentUrl);
+                    //Uri uri = Uri.parse(currentUrl);
+                    //Intent browserIntent = new Intent(Intent.ACTION_VIEW, uri);
+                    //startActivity(browserIntent);
+                    //startActivity(new Intent(Intent.ACTION_VIEW,uri));
+                    loadBlogViewer(currentUrl);
+
+
+                } catch (ActivityNotFoundException e) {
+                    //Toast.makeText(this, "No application can handle this request!", Toast.LENGTH_LONG ).show();
+                    e.printStackTrace();
+                    Log.w("WRIR","Failed blogUrl");
+                }
+            }
+        });
+
+           */
+
+        /*
+        songName.setOnLongClickListener(new View.OnLongClickListener(){
+            @Override
+            public boolean onLongClick(View view) {
+                try {
+                    blogUrl =(TextView) view.findViewById(R.id.blogurl);
+                    String currentUrl = blogUrl.getText().toString();
+                    Log.w("WRIR","Getting blogUrl" + currentUrl);
+                    //Uri uri = Uri.parse(currentUrl);
+                    //Intent browserIntent = new Intent(Intent.ACTION_VIEW, uri);
+                    //startActivity(browserIntent);
+                    //startActivity(new Intent(Intent.ACTION_VIEW,uri));
+                    loadBlogViewer(currentUrl);
+
+                } catch (ActivityNotFoundException e) {
+                    //Toast.makeText(PlayerControl.CONTEXT_IGNORE_SECURITY, "No application can handle this request!", Toast.LENGTH_LONG ).show();
+                    e.printStackTrace();
+                    Log.w("WRIR","Failed blogUrl");
+                }
+                return true;
+            }
+        });
+        */
         Log.w("WRIR", "WRIR: About to create uri");
+        if (mediaPlayer != null) {
+            try {
+                mediaPlayer.release();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
         mediaPlayer = MediaPlayer.create(this, mp3url);
         Log.w("WRIR", "WRIR: Created uri");
         seekbar.setClickable(true);
         pauseButton.setEnabled(false);
 
         new DownloadImageTask((ImageView) findViewById(R.id.poster)).execute(posterurl);
+
+
+
         seekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             int progressChanged = 0;
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser){
@@ -202,6 +314,18 @@ public class PlayerControl extends Activity {
         protected void onPostExecute(Bitmap result) {
             bmImage.setImageBitmap(result);
         }
+    }
+    public void loadBlogViewer(String blogUrl) {
+        //define a new Intent for the second Activity
+        Log.w("WRIR","WRIR: about to Intent");
+        Intent intent = new Intent(this, BlogSiteViewer.class);
+        Log.w("WRIR","WRIR: Putting Extras" + blogUrl );
+
+        intent.putExtra("blogUrl", blogUrl);
+        //start the second Activity
+        Log.w("WRIR","WRIR: StartActivity blogUrl NOW");
+        this.startActivity(intent);
+        Log.w("WRIR", "WRIR: BlogUrl Done!");
     }
 
 }

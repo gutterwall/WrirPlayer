@@ -16,19 +16,24 @@
         android:icon="@drawable/ic_launcher"
         android:label="WRIR.org Player "
         android:theme="@style/AppTheme" >
+
         <activity
             android:name="org.wrir.WrirPlayer.MainActivity"
             android:label="WRIR.org Player" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name="org.wrir.WrirPlayer.PlayerControl"
-            android:label="WRIR.org Player">
-
+            android:label="WRIR.org Player"
+            >
+            </activity>
+        <activity
+            android:name="org.wrir.WrirPlayer.util.BlogSiteViewer"
+            android:label="WRIR.org Player"
+            >
             </activity>
 
     </application>

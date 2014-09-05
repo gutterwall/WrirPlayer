@@ -29,6 +29,10 @@
             android:name="org.wrir.WrirPlayer.PlayerControl"
             android:label="WRIR.org Player" >
         </activity>
+        <activity
+            android:name="org.wrir.WrirPlayer.util.BlogSiteViewer"
+            android:label="WRIR.org Player" >
+        </activity>
     </application>
 
 </manifest>

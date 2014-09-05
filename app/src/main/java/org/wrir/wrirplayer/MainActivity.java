@@ -10,11 +10,13 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.wrir.WrirPlayer.util.BlogSiteViewer;
 
 
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -22,13 +24,13 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.NetworkImageView;
 
 
 public class MainActivity extends Activity {
@@ -61,16 +63,37 @@ public class MainActivity extends Activity {
                 String title = titleView.getText().toString();
                 TextView posterView = (TextView) view.findViewById(R.id.poster);
                 String posterurl = posterView.getText().toString();
+                TextView blogUrl = (TextView) view.findViewById(R.id.blogurl);
+                String blogurl = blogUrl.getText().toString();
                 //Toast.makeText(getApplicationContext(), mp3, Toast.LENGTH_LONG).show();
                 try {
                     killMediaPlayer();
-                    loadPlayerControl(mp3, title, posterurl);
+                    loadPlayerControl(mp3, title, posterurl, blogurl);
                     //playAudio(mp3);
                     //playLocalAudio();
                     //playLocalAudio_UsingDescriptor();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+            }
+        });
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            public boolean onItemLongClick(AdapterView<?> parent, View view,
+                                        int position, long id) {
+                TextView blogUrl = (TextView) view.findViewById(R.id.blogurl);
+                String blogurl = blogUrl.getText().toString();
+                Toast.makeText(getApplicationContext(), blogurl, Toast.LENGTH_LONG).show();
+                try {
+                    Uri uri = Uri.parse(blogurl);
+                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, uri);
+                    startActivity(browserIntent);
+                   // loadBlogSiteView(blogurl);
+
+                } catch (Exception e) {
+
+                    e.printStackTrace();
+                }
+                return true;
             }
         });
 
@@ -111,6 +134,7 @@ public class MainActivity extends Activity {
                                 Show.setType(obj.getString("type"));
                                 Show.setDatestamp(obj.getString("datestamp"));
                                 Show.setMp3(obj.getString("mp3"));
+                                Show.setBlogUrl(obj.getString("showurl"));
 
                                 // adding Show to Shows array
                                 ShowList.add(Show);
@@ -172,7 +196,7 @@ public class MainActivity extends Activity {
         }
     }
 
-    public void loadPlayerControl(String mp3, String title, String poster) {
+    public void loadPlayerControl(String mp3, String title, String poster, String blogUrl) {
         //define a new Intent for the second Activity
         Log.w("WRIR","WRIR: about to Intent");
         Intent intent = new Intent(this, PlayerControl.class);
@@ -180,19 +204,23 @@ public class MainActivity extends Activity {
         intent.putExtra("mp3", mp3);
         intent.putExtra("title", title);
         intent.putExtra("poster", poster);
+        intent.putExtra("blogurl", blogUrl);
         //start the second Activity
         Log.w("WRIR","WRIR: StartActivity NOW");
         this.startActivity(intent);
         Log.w("WRIR", "WRIR: Done!");
     }
-    private void playAudio(String url) throws Exception {
-        killMediaPlayer();
 
-        mediaPlayer = new MediaPlayer();
-        mediaPlayer.setDataSource(url);
-        mediaPlayer.prepare();
-        mediaPlayer.start();
-    }
+   public void loadBlogSiteView(String blogUrl) {
+       Log.w("WRIR","WRIR: about to Intent Blog");
+       Intent intent = new Intent(this, BlogSiteViewer.class);
+       Log.w("WRIR","WRIR: Putting Extras " + blogUrl);
+       intent.putExtra("blogUrl", blogUrl);
+       //start the second Activity
+       Log.w("WRIR","WRIR: StartActivity BlogSiteViewer NOW");
+       this.startActivity(intent);
+       Log.w("WRIR", "WRIR: BlogSiteViewer Done!");
+   }
 
 
 }

@@ -70,7 +70,7 @@ public class CustomListAdapter extends BaseAdapter {
         TextView datestamp = (TextView) convertView.findViewById(R.id.datestamp);
         TextView mp3 = (TextView) convertView.findViewById(R.id.mp3);
         TextView poster = (TextView) convertView.findViewById(R.id.poster);
-
+        TextView blogUrl = (TextView) convertView.findViewById(R.id.blogurl);
 
         // getting Show data for the row
         Show m = ShowItems.get(position);
@@ -104,6 +104,8 @@ public class CustomListAdapter extends BaseAdapter {
         datestamp.setText(showtime);
         //MP3 URL
         mp3.setText(m.getMp3());
+
+        blogUrl.setText(m.getBlogUrl());
 
         //Poster for Player to load separately (Need to throw Volley into Player maybe later??
         poster.setText(m.getThumbnailUrl());
